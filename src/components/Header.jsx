@@ -15,12 +15,11 @@ export default function Header() {
         >
             <Container>
                 <Navbar.Brand as={Link} to="/">
-                    {/* 로고고, 누르면 홈으로 이동하게 함  */}
+                    {/* 로고z*/}
                     <img src="./images/logo2.png" alt="로고 " style={{ width: '130px', height: 'auto' }} />
                 </Navbar.Brand>
 
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    {/* 오른쪽으로 밀기 */}
                     <Nav className="ms-auto">
                         <Nav.Link
                             as={Link}
