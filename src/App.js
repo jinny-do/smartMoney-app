@@ -1,9 +1,11 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
+//import { useState } from 'react';
+
 import Header from './components/Header';
 import Home from './components/Home';
-import { useState } from 'react';
+import Detail from './ledger/Detail';
 
 function App() {
     return (
@@ -17,10 +19,11 @@ function App() {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={12} sm={9} md={9} lg={9}>
+                        <Col xs={12}>
                             {/* 라우트 */}
                             <Routes>
                                 <Route path="/" element={<Home />} />
+                                <Route path="/detail" element={<Detail />} />
 
                                 {/* <Route path="/*" element={<PageNotFound />} /> */}
                             </Routes>
