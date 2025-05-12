@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Login.css'; // CSS 불러오기
+import './Login.css';
 
 const User = {
     email: 'abc@naver.com',
     pw: 'abc12345!',
 };
 
-function Login() {
-    const navigate = useNavigate();
+function Login({ onLoginSuccess }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailValid, setEmailValid] = useState(false);
@@ -32,7 +30,7 @@ function Login() {
     const handleLogin = () => {
         if (email === User.email && password === User.pw) {
             alert('로그인에 성공했습니다.');
-            navigate('/main');
+            onLoginSuccess(); // navigate 절대 NO
         } else {
             alert('아이디 또는 비밀번호를 다시 입력해주세요.');
         }
@@ -44,9 +42,9 @@ function Login() {
 
     return (
         <div className="login-container">
-            <img src="/logo.png" alt="로고" className="logo" />
+            <img src="./images/logo.png" alt="로고" className="logo" />
             <h2 className="title">똑똑한 가계부에 오신 것을 환영합니다</h2>
-            <h2 className="explain">사진 한장으로 자동 가계부 작성, 지금 바로 시작해보세요!</h2>
+            <h2 className="explain">사진 한 장으로 자동 가계부 작성, 지금 바로 시작해보세요!</h2>
 
             <input type="email" placeholder="이메일" value={email} onChange={handleEmail} className="input-field" />
             <input
@@ -64,14 +62,14 @@ function Login() {
                     backgroundColor: nowAllow ? '#007bff' : '#999',
                     cursor: nowAllow ? 'pointer' : 'not-allowed',
                 }}
-                disabled={nowAllow === false}
+                disabled={!nowAllow}
             >
                 로그인
             </button>
 
             <div className="signup">
                 아직 회원이 아니신가요?{' '}
-                <span className="link" onClick={() => navigate('/Register')}>
+                <span className="link" onClick={() => (window.location.href = '/register')}>
                     회원가입
                 </span>
             </div>
