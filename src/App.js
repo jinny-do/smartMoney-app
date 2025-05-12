@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Header from './components/Header';
 import Home from './components/Home';
 import Detail from './ledger/Detail';
+import PageNotFound from './PageNotFound';
 
 function App() {
     return (
@@ -25,7 +26,7 @@ function App() {
                                 <Route path="/" element={<Home />} />
                                 <Route path="/detail" element={<Detail />} />
 
-                                {/* <Route path="/*" element={<PageNotFound />} /> */}
+                                <Route path="/*" element={<PageNotFound />} />
                             </Routes>
                         </Col>
                         <Col xs={12} sm={3} md={3} lg={3} className="d-none d-sm-block mt-3">
