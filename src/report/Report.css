@@ -1,0 +1,76 @@
+.report-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.report-header button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.report-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.report-title {
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+}
+
+.chart-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+
+.chart-box {
+    flex: 1;
+    min-width: 0;
+}
+
+.goal {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+}
+
+.goal > label {
+    font-size: 20px;
+    margin: 3px;
+}
+
+.goal > input {
+    width: 40%;
+    border-radius: 8px;
+    margin-left: 5px;
+    border: 1.6px solid #cccccc;
+}
+
+.goal > button {
+    margin-left: 5px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3971d9;
+    color: white;
+    width: 4em;
+}
+
+.goal > button:hover {
+    background-color: #2958ad;
+}

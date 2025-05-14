@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import DatePicker from 'react-datepicker';
@@ -13,10 +13,30 @@ const MainPage = () => {
     const dailyExpenses = [];
     const fixedExpenses = [...dailyExpenses];
     while (fixedExpenses.length < 6) fixedExpenses.push(null);
+    const [goal, setGoal] = useState('');
+
+    useEffect(() => {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const key = `goal-${year}-${month}`;
+        const savedGoal = localStorage.getItem(key);
+        if (savedGoal) {
+            setGoal(savedGoal);
+        }
+    }, []);
 
     return (
         <div>
-            {/* Header 제거됨! */}
+            {/* ✅ 목표를 main 위로 옮김 */}
+            <div>
+                {goal ? (
+                    <div className="goal-display">📌 이번 달 목표: {goal}</div>
+                ) : (
+                    <div className="goal-display">🎯 이번 달 목표가 설정되어 있지 않아요.</div>
+                )}
+            </div>
+
             <main className="main-container">
                 <div className="calendar-section">
                     <DatePicker

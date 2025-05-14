@@ -4,6 +4,7 @@
     display: flex;
     margin-top: 150px;
     padding-left: 80px;
+    justify-content: center;
 }
 
 .calendar-section {
@@ -20,7 +21,7 @@
     width: 160px;
     height: 30px;
     border-radius: 25px;
-    background-color: #ffa500;
+    background-color: #156ca7;
     border: none;
     color: white;
     font-weight: bold;
@@ -87,4 +88,22 @@
     font-weight: bold;
     color: #888;
     cursor: pointer;
+}
+.main-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 화면 전체 높이 */
+}
+
+.main-container {
+    flex-grow: 1; /* 남은 공간 모두 차지해서 위로 밀어줌 */
+}
+
+/* 목표는 자연스럽게 맨 아래로 */
+.goal-display {
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    background-color: #f3f3f3;
+    border-top: 1px solid #ccc;
 }

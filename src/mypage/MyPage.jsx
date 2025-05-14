@@ -9,7 +9,7 @@ export default function MyPage() {
         <div className="container mx-auto px-4">
             <div style={{ display: 'flex', height: '100vh' }}>
                 {/* 왼쪽 3 (30%) */}
-                <div style={{ flex: 3, backgroundColor: '#f5f5f5', padding: '20px' }}>
+                <div style={{ flex: 2, backgroundColor: '#f5f5f5', padding: '20px' }}>
                     <div className="icon-container">
                         {' '}
                         <FaUser className="user" />
@@ -28,7 +28,7 @@ export default function MyPage() {
                 </div>
 
                 {/* 오른쪽 7 (70%) */}
-                <div style={{ flex: 7, padding: '20px' }}>
+                <div style={{ flex: 8, padding: '20px' }}>
                     <div className="ai-section">
                         <p className="ai-title">🤖 지갑 걱정, AI가 덜어줄게요!</p>
 
