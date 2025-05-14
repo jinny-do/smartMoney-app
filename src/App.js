@@ -1,44 +1,36 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
-//import { useState } from 'react';
+
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import Header from './components/Header';
 import Home from './components/Home';
 import Detail from './ledger/Detail';
-import PageNotFound from './PageNotFound';
-import MyPage from './mypage/MyPage';
+
+import Register from './Main/Register';
+import MainPage from './Main/MainPage';
+import Login from './Main/LoginModal';
 
 function App() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     return (
         <div className="container py-5">
-            <BrowserRouter>
-                {/* BrowserRouter로 앱 전체를 감싸야 라우팅 기능을 사용할 수 있다 */}
-                <Container>
-                    <Row>
-                        <Col className="mb-5">
-                            <Header />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            {/* 라우트 */}
-                            <Routes>
-                                <Route path="/" element={<Home />} />
-                                <Route path="/detail" element={<Detail />} />
+            {/* 로그인 후에만 헤더 항상 표시 */}
+            {isLoggedIn && <Header />}
 
-                                <Route path="/mypage" element={<MyPage />} />
-
-                                <Route path="/*" element={<PageNotFound />} />
-                            </Routes>
-                        </Col>
-                        <Col xs={12} sm={3} md={3} lg={3} className="d-none d-sm-block mt-3">
-                            {/* d-none: 모두 안보이게한 뒤 d-sm-block => small사이즈부터 보여준다 */}
-                            {/* <Side onShowLogin={onShowLoginChange} /> */}
-                        </Col>
-                    </Row>
-                </Container>
-            </BrowserRouter>
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        isLoggedIn ? <Navigate to="/main" /> : <Login onLoginSuccess={() => setIsLoggedIn(true)} />
+                    }
+                />
+                <Route path="/register" element={<Register />} />
+                <Route path="/main" element={isLoggedIn ? <MainPage /> : <Navigate to="/" />} />
+                <Route path="/detail" element={isLoggedIn ? <Detail /> : <Navigate to="/" />} />
+                <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
         </div>
     );
 }

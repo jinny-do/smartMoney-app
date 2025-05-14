@@ -28,7 +28,7 @@ function Register() {
 
     return (
         <div className="register-background">
-            <img src="/logo.png" alt="로고" className="logo-r" onClick={() => navigate('/')} />
+            <img src="./images/logo.png" alt="로고" className="logo-r" onClick={() => navigate('/')} />
 
             <div className="register-card">
                 <h2 className="register-title">회원가입</h2>
