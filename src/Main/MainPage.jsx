@@ -10,9 +10,16 @@ const MainPage = () => {
     const navigate = useNavigate();
 
     const formattedDate = startDate.toISOString().split('T')[0];
-    const dailyExpenses = [];
+
+    // 🧾 가짜 지출 내역 데이터 유지
+    const dailyExpenses = [
+        { id: 1, date: formattedDate, item: '쇼핑', amount: '4,500원' },
+        { id: 2, date: formattedDate, item: '음식', amount: '9,000원' },
+        { id: 3, date: formattedDate, item: '기타', amount: '1,250원' },
+    ];
     const fixedExpenses = [...dailyExpenses];
     while (fixedExpenses.length < 6) fixedExpenses.push(null);
+
     const [goal, setGoal] = useState('');
 
     useEffect(() => {
@@ -33,7 +40,7 @@ const MainPage = () => {
                 {goal ? (
                     <div className="goal-display">📌 이번 달 목표: {goal}</div>
                 ) : (
-                    <div className="goal-display">🎯 이번 달 목표가 설정되어 있지 않아요.</div>
+                    <div className="goal-display">🎯 이번 달 목표를 설정해주세요!</div>
                 )}
             </div>
 
@@ -46,7 +53,7 @@ const MainPage = () => {
                         inline
                     />
                     <button className="upload-button" onClick={() => navigate('/upload')}>
-                        영수증 업로드
+                        영수증 등록
                     </button>
                 </div>
 
@@ -67,7 +74,7 @@ const MainPage = () => {
                                     </>
                                 ) : index === 5 ? (
                                     <button className="plus-button" onClick={() => navigate('/detail')}>
-                                        +
+                                        🔍 자세히 보기
                                     </button>
                                 ) : (
                                     <span>지출 없음</span>
