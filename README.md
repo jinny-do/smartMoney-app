@@ -24,4 +24,27 @@
      올려놓은 상태 입니다!
 
 
+-------------------------------------------------------------------------------------------------------------------
+### 회원별 고정 프로필 색상 적용 방식
+
+1. DB에 `profile_color` 컬럼 추가 (VARCHAR(7))
+
+2. 회원가입 시 JS에서 랜덤 hex 색상을 생성하여 같이 저장
+
+3. 로그인 시 해당 색상도 함께 불러옴
+
+4. 프론트에서는 해당 색을 배경으로 적용하고,
+   - 배경이 어두우면 아이콘을 흰색으로
+   - 배경이 밝으면 아이콘을 검정색으로 자동 설정
+===> 4번은 상황 보고 설정
+
+➡️ 회원가입시 DB 에 컬럼 하나 만들어서 저장하는 방법임.
+    가입할 때 랜덤색 뽑아서 DB에 저장 하고 마이페이지에서 그 색 불러와서 보여주는 방식
+    ● sql : ALTER TABLE users ADD profile_color VARCHAR(7);  -- #RRGGBB 형태
+    ● 회원가입 API에서 :  const color = getRandomColor(); // 랜덤색 함수 사용
+                        await db.query('INSERT INTO users (email, passwd, profile_color) VALUES (?, ?, ?)', [email, passwd, color]);
+    ● 마이페이지에서 : const profileColor = user.profile_color;
+
+
+
 ```
