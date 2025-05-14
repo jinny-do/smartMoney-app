@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Detail from './ledger/Detail';
 import PageNotFound from './PageNotFound';
+import MyPage from './mypage/MyPage';
 
 function App() {
     return (
@@ -25,6 +26,8 @@ function App() {
                             <Routes>
                                 <Route path="/" element={<Home />} />
                                 <Route path="/detail" element={<Detail />} />
+
+                                <Route path="/mypage" element={<MyPage />} />
 
                                 <Route path="/*" element={<PageNotFound />} />
                             </Routes>
