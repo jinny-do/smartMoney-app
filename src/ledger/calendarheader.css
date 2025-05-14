@@ -40,7 +40,7 @@
 }
 
 .calendar-icon:hover {
-    color: #3062e0;
+    color: rgb(149, 119, 200);
 }
 
 .calendar-popup {
@@ -51,6 +51,7 @@
     background-color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
-    padding: 10px;
+    padding: 20px;
+    padding-right: 70px;
     z-index: 9999;
 }

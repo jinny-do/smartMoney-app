@@ -11,7 +11,7 @@ export default function Header() {
                 {/* 왼쪽: 로고 + 텍스트 */}
                 <div className="header-left">
                     <Navbar.Brand as={Link} to="/" className="navbar-brand">
-                        <img src="/images/logo2.png" alt="로고" className="navbar-logo" />
+                        <img src="/images/logo3.png" alt="로고" className="navbar-logo" />
                     </Navbar.Brand>
                 </div>
 

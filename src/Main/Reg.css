@@ -53,11 +53,15 @@
     margin-top: 20px;
     padding: 12px;
     font-size: 1.1rem;
-    background-color: #ff8800;
+    background-color: rgb(142, 111, 163);
     border: none;
     color: white;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.register-button:hover {
+    background-color: #472566;
 }
 
 .divider {

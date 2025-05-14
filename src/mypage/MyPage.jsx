@@ -7,9 +7,9 @@ import './mypage.css';
 export default function MyPage() {
     return (
         <div className="container mx-auto px-4">
-            <div style={{ display: 'flex', height: '100vh' }}>
+            <div style={{ display: 'flex', height: 'auto' }}>
                 {/* 왼쪽 3 (30%) */}
-                <div style={{ flex: 2, backgroundColor: '#f5f5f5', padding: '20px' }}>
+                <div style={{ flex: 2, backgroundColor: '#fdfbe4', padding: '20px' }}>
                     <div className="icon-container">
                         {' '}
                         <FaUser className="user" />
@@ -47,7 +47,7 @@ export default function MyPage() {
                     <div style={{ display: 'flex' }}>
                         <div className="ai-button-group" style={{ flex: 2, padding: '20px' }}>
                             <button className="ai-button">일일소비 데이터분석🧾</button>
-                            <button className="ai-button">한달소비 데이터분석 🗓️</button>
+                            <button className="ai-button">한달소비 데이터분석🗓️</button>
                         </div>
                         <div className="ai-result" style={{ flex: 9, padding: '20px' }}>
                             <p>

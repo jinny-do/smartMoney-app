@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { CiCirclePlus } from 'react-icons/ci';
 
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
 import './Main.css';
 
 const MainPage = () => {
-    const [startDate, setStartDate] = useState(new Date());
+    const [selected, setSelected] = useState(new Date()); // 기본값 추가
     const navigate = useNavigate();
 
-    const formattedDate = startDate.toISOString().split('T')[0];
-    const dailyExpenses = [];
+    // 선택된 날짜가 있는 경우에만 포맷팅
+    const formattedDate = selected ? selected.toISOString().split('T')[0] : '';
+
+    const dailyExpenses = []; // 실제 지출 데이터는 나중에 API 연결 예정?
     const fixedExpenses = [...dailyExpenses];
     while (fixedExpenses.length < 6) fixedExpenses.push(null);
+
     const [goal, setGoal] = useState('');
 
     useEffect(() => {
@@ -28,7 +33,6 @@ const MainPage = () => {
 
     return (
         <div>
-            {/* ✅ 목표를 main 위로 옮김 */}
             <div>
                 {goal ? (
                     <div className="goal-display">📌 이번 달 목표: {goal}</div>
@@ -38,20 +42,28 @@ const MainPage = () => {
             </div>
 
             <main className="main-container">
-                <div className="calendar-section">
-                    <DatePicker
-                        selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        dateFormat="yyyy-MM-dd"
-                        inline
+                <div className="calendar-section" style={{ flex: 7, padding: '10px' }}>
+                    <DayPicker
+                        mode="single"
+                        selected={selected}
+                        onSelect={setSelected}
+                        className="responsive-calendar"
+                        modifiersClassNames={{
+                            selected: 'my-selected',
+                            today: 'my-today',
+                        }}
                     />
+
                     <button className="upload-button" onClick={() => navigate('/upload')}>
                         영수증 업로드
                     </button>
                 </div>
 
-                <div className="expense-section">
-                    <h2 className="expense-title">{formattedDate} 지출 내역</h2>
+                <div className="expense-section" style={{ flex: 4, padding: '10px' }}>
+                    <p className="expense-title">
+                        {' '}
+                        {''}🧾{formattedDate} 지출 내역
+                    </p>
                     <div className="expense-box">
                         {fixedExpenses.map((expense, index) => (
                             <div
@@ -66,7 +78,7 @@ const MainPage = () => {
                                         <span className="expense-amount">{expense.amount}</span>
                                     </>
                                 ) : index === 5 ? (
-                                    <button className="plus-button" onClick={() => navigate('/detail')}>
+                                    <button className="plus-button " onClick={() => navigate('/detail')}>
                                         +
                                     </button>
                                 ) : (

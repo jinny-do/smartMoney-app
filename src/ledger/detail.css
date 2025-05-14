@@ -16,7 +16,7 @@
 }
 
 .category-total-card {
-    background-color: #f6f6f6;
+    background-color: #fffeec;
     border: 1px solid #e2e2e2;
     border-radius: 12px;
     padding: 10px 14px;
@@ -29,7 +29,7 @@
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 16px;
-    background-color: #fff;
+    background-color: #fffffe;
     height: 500px;
     overflow-y: auto;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);

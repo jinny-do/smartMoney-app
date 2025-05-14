@@ -18,7 +18,7 @@ function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     return (
-        <div className="container py-5">
+        <div>
             {/* 로그인 후에만 헤더 항상 표시 */}
             {isLoggedIn && <Header />}
 
