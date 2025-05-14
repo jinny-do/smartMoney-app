@@ -6,7 +6,7 @@ import './mypage.css';
 
 export default function MyPage() {
     return (
-        <div>
+        <div className="container mx-auto px-4">
             <div style={{ display: 'flex', height: '100vh' }}>
                 {/* 왼쪽 3 (30%) */}
                 <div style={{ flex: 3, backgroundColor: '#f5f5f5', padding: '20px' }}>
@@ -43,12 +43,13 @@ export default function MyPage() {
 
                     <br />
                     <hr />
+                    <br />
                     <div style={{ display: 'flex' }}>
-                        <div className="ai-button-group" style={{ flex: 3, padding: '20px' }}>
+                        <div className="ai-button-group" style={{ flex: 2, padding: '20px' }}>
                             <button className="ai-button">일일소비 데이터분석🧾</button>
                             <button className="ai-button">한달소비 데이터분석 🗓️</button>
                         </div>
-                        <div className="ai-result" style={{ flex: 7, padding: '20px' }}>
+                        <div className="ai-result" style={{ flex: 9, padding: '20px' }}>
                             <p>
                                 오늘 소비 총 소비는 80,000원 💸
                                 <br />
