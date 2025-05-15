@@ -1,6 +1,11 @@
 .custom-navbar {
+<<<<<<< HEAD
     background-color: #8b95a8 !important;
     padding: 10px 24px;
+=======
+    background-color: #f0cb45b7 !important;
+    padding: 4px 24px;
+>>>>>>> d5804ed (feat: Camera 기능 추가 및 CalendarHeader 화살표 개선)
 }
 
 .header-container {

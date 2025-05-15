@@ -35,3 +35,8 @@
 .camera-button:hover {
     background-color: #ee9434;
 }
+.camera-preview {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
