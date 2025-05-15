@@ -44,7 +44,7 @@ function Login({ onLoginSuccess }) {
         <div className="login-container">
             <div className="intro">
                 <img src="./images/logo3.png" alt="로고" className="logo" />
-                <p>AI가 분석해주는 가계부, 목표 소비까지 한눈에!</p>
+                <p> 🤖 AI가 분석해주는 가계부, 목표 소비까지 한눈에!</p>
                 <h2 className="explain">사진 한 장으로 자동 가계부 작성, 지금 바로 시작해보세요!</h2>
             </div>
 
