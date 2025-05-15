@@ -6,7 +6,6 @@
     background-color: #fffefa;
 }
 
-/* 헤더에 살짝 연핑크 배경 */
 .modal-header-custom {
     background-color: #f3eeff;
     border-bottom: none;
@@ -14,12 +13,10 @@
     border-top-right-radius: 16px;
 }
 
-/* 바디 여백 정리 */
 .modal-body-custom {
     padding: 25px;
 }
 
-/* 핑크 버튼 */
 .pink-button {
     background-color: #a68ade !important;
     border: none !important;

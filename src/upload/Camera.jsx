@@ -1,11 +1,12 @@
-// src/upload/Camera.jsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './camera.css';
 
 export default function Camera() {
     const videoRef = useRef(null);
+    const canvasRef = useRef(null);
     const navigate = useNavigate();
-    const streamRef = useRef(null); // 스트림 저장용
+    const streamRef = useRef(null);
 
     useEffect(() => {
         const startCamera = async () => {
@@ -14,7 +15,7 @@ export default function Camera() {
                 if (videoRef.current) {
                     videoRef.current.srcObject = stream;
                     videoRef.current.play();
-                    streamRef.current = stream; // 스트림 저장
+                    streamRef.current = stream;
                 }
             } catch (err) {
                 console.error('카메라 접근 실패:', err);
@@ -25,7 +26,6 @@ export default function Camera() {
 
         startCamera();
 
-        // ✅ 페이지 떠날 때 카메라 꺼지게 하기
         return () => {
             if (streamRef.current) {
                 streamRef.current.getTracks().forEach((track) => track.stop());
@@ -33,37 +33,47 @@ export default function Camera() {
         };
     }, [navigate]);
 
-    return (
-        <div style={{ textAlign: 'center', paddingTop: '30px' }}>
-            <h2>📷 카메라 촬영</h2>
+    // 사진 찍기
+    const takePicture = () => {
+        const canvas = canvasRef.current;
+        const video = videoRef.current;
 
-            <video
-                ref={videoRef}
-                width="600"
-                height="450"
-                autoPlay
-                playsInline
-                muted
-                style={{
-                    border: '3px solid #999',
-                    borderRadius: '12px',
-                    marginBottom: '20px',
-                }}
-            />
+        // Canvas에 비디오 이미지를 그리기
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        // 이미지 데이터를 상태에 저장
+        const imageUrl = canvas.toDataURL('image/png');
+
+        // 기존 이미지 불러오기
+        const savedImages = JSON.parse(localStorage.getItem('receipts') || '[]');
+
+        // 새로 찍은 이미지를 기존 목록에 추가
+        savedImages.push(imageUrl);
+
+        // 로컬 스토리지에 저장
+        localStorage.setItem('receipts', JSON.stringify(savedImages));
+
+        // 사진이 찍히면 알림을 띄운다
+        alert('사진이 저장되었습니다!');
+    };
+
+    return (
+        <div className="camera-wrapper">
+            <h2 className="camera-title">📷 카메라 촬영</h2>
+
+            <video ref={videoRef} autoPlay playsInline muted className="camera-video" />
+
+            {/* 촬영한 이미지를 보여줄 캔버스 */}
+            <canvas ref={canvasRef} style={{ display: 'none' }} />
 
             <br />
-            <button
-                onClick={() => navigate('/upload')}
-                style={{
-                    padding: '10px 20px',
-                    fontSize: '1rem',
-                    backgroundColor: '#ff7f50',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '8px',
-                    cursor: 'pointer',
-                }}
-            >
+            <button className="camera-button" onClick={takePicture}>
+                📸 사진 찍기
+            </button>
+            <button className="camera-button" onClick={() => navigate('/upload')}>
                 ← 돌아가기
             </button>
         </div>

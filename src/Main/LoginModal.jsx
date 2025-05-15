@@ -44,11 +44,18 @@ function Login({ onLoginSuccess }) {
         <div className="login-container">
             <div className="intro">
                 <img src="./images/logo3.png" alt="로고" className="logo" />
-                <p> 🤖 AI가 분석해주는 가계부, 목표 소비까지 한눈에!</p>
-                <h2 className="explain">사진 한 장으로 자동 가계부 작성, 지금 바로 시작해보세요!</h2>
+                <br />
+                <p className="intro-title mt-1"> 🤖 AI가 분석해주는 가계부, 목표 소비까지 한눈에! </p>
+                <div className="intros">
+                    {' '}
+                    <p className="intro1"> 🧾 영수증을 찍으면 자동으로 등록돼요! </p>
+                    <p className="intro2"> 🧠 AI 한줄 요약 : " 이번 달 외식이 너무 많아요! "</p>
+                </div>
+
+                <h2 className="explain">📸 사진 한 장으로 자동 가계부 작성, 지금 바로 시작해보세요!</h2>
             </div>
 
-            <div>
+            <div className="login">
                 <input type="email" placeholder="이메일" value={email} onChange={handleEmail} className="input-field" />
                 <input
                     type="password"
@@ -57,12 +64,15 @@ function Login({ onLoginSuccess }) {
                     onChange={handlePassword}
                     className="input-field"
                 />
+
+                <button
+                    onClick={handleLogin}
+                    className={`my-btn ${nowAllow ? 'active' : 'disabled'}`}
+                    disabled={!nowAllow}
+                >
+                    로그인
+                </button>
             </div>
-
-            <button onClick={handleLogin} className={`my-btn ${nowAllow ? 'active' : 'disabled'}`} disabled={!nowAllow}>
-                로그인
-            </button>
-
             <div className="signup">
                 아직 회원이 아니신가요?{' '}
                 <span className="link" onClick={() => (window.location.href = '/register')}>

@@ -8,12 +8,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .logo {
     width: 250px;
-    margin-bottom: 3px;
 }
 
 .title {
@@ -45,12 +44,12 @@
 }
 
 .my-btn.active {
-    background-color: rgb(142, 111, 163);
+    background-color: rgb(177, 142, 200);
     cursor: pointer;
 }
 
 .my-btn.active:hover {
-    background-color: #472566;
+    background-color: #765396;
 }
 
 .my-btn.disabled {
@@ -69,7 +68,75 @@
     text-decoration: underline;
 }
 
-.intro > p {
-    font-size: 27px;
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.intro-title {
+    font-size: 35px;
     font-weight: 500;
+    background-color: rgb(252, 245, 226);
+    display: inline-block; /* 또는 inline */
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+}
+
+.intro1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 500;
+    background-color: rgb(244, 242, 250);
+    display: inline-block; /* 또는 inline */
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.intro2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 500;
+    background-color: rgb(244, 242, 250);
+    display: inline-block; /* 또는 inline */
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.explain {
+    margin-top: 10px;
+    font-weight: bold;
+    background-color: rgb(252, 245, 226);
+    display: inline-block; /* 또는 inline */
+    padding: 7px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.login > input {
+    border-radius: 10px;
+    border: 1.6px solid #e4e4e4;
+}
+
+.login > input:focus {
+    border: 2px solid #765396;
+    outline: none;
 }
