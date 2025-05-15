@@ -10,7 +10,7 @@
 }
 
 .calendar-section {
-    transform: scale(2);
+    transform: scale(2.2);
     transform-origin: top left;
     margin-left: 120px;
     display: flex;
@@ -23,11 +23,7 @@
     width: 160px;
     height: 40px;
     border-radius: 4px;
-<<<<<<< HEAD
     background-color: #365a93;
-=======
-    background-color: #f0cb45b7;
->>>>>>> d5804ed (feat: Camera 기능 추가 및 CalendarHeader 화살표 개선)
     border: none;
     color: white;
     font-weight: bold;

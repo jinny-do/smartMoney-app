@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { format } from 'date-fns'; // ✅ 추가
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -9,14 +10,20 @@ const MainPage = () => {
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
 
-    const formattedDate = startDate.toISOString().split('T')[0];
+    const formattedDate = format(startDate, 'yyyy-MM-dd');
 
-    // 🧾 가짜 지출 내역 데이터 유지
     const dailyExpenses = [
         { id: 1, date: formattedDate, item: '쇼핑', amount: '4,500원' },
         { id: 2, date: formattedDate, item: '음식', amount: '9,000원' },
         { id: 3, date: formattedDate, item: '기타', amount: '1,250원' },
     ];
+
+    // ✅ 날짜 정확히 맞춰 format(date)
+    const expenseMap = dailyExpenses.reduce((acc, item) => {
+        acc[item.date] = (acc[item.date] || 0) + parseInt(item.amount.replace(/[^\d]/g, ''));
+        return acc;
+    }, {});
+
     const fixedExpenses = [...dailyExpenses];
     while (fixedExpenses.length < 6) fixedExpenses.push(null);
 
@@ -35,7 +42,6 @@ const MainPage = () => {
 
     return (
         <div>
-            {/* ✅ 목표를 main 위로 옮김 */}
             <div>
                 {goal ? (
                     <div className="goal-display">📌 이번 달 목표: {goal}</div>
@@ -51,6 +57,27 @@ const MainPage = () => {
                         onChange={(date) => setStartDate(date)}
                         dateFormat="yyyy-MM-dd"
                         inline
+                        renderDayContents={(day, date) => {
+                            const dateStr = format(date, 'yyyy-MM-dd'); // ✅ 정확한 날짜 매칭
+                            const amount = expenseMap[dateStr];
+
+                            return (
+                                <div style={{ textAlign: 'center', lineHeight: '1.1' }}>
+                                    <div>{day}</div>
+                                    {amount && (
+                                        <div
+                                            style={{
+                                                fontSize: '0.35rem',
+                                                color: '#888',
+                                                marginTop: '1px',
+                                            }}
+                                        >
+                                            ₩{amount.toLocaleString()}
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        }}
                     />
                     <button className="upload-button" onClick={() => navigate('/upload')}>
                         영수증 등록

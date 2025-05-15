@@ -1,11 +1,8 @@
 .custom-navbar {
-<<<<<<< HEAD
-    background-color: #8b95a8 !important;
+    background-color: #dbd7a5bf !important;
     padding: 10px 24px;
-=======
-    background-color: #f0cb45b7 !important;
-    padding: 4px 24px;
->>>>>>> d5804ed (feat: Camera 기능 추가 및 CalendarHeader 화살표 개선)
+    top: 0;
+    z-index: 1000;
 }
 
 .header-container {
@@ -37,6 +34,21 @@
 .header-right .nav-link {
     color: white !important;
     font-weight: bold;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: bold;
     font-size: 1.1rem;
     text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 3px solid transparent; /* 기본은 투명 */
+    transition: border-color 0.3s ease;
+}
+
+.nav-link.active {
+    border-bottom: 3px solid white; /* ✅ 현재 선택된 페이지 */
+    color: #fff !important;
 }

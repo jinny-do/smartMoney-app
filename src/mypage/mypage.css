@@ -1,5 +1,4 @@
-/* mypage.css */
-
+/* 프로필 아이콘 */
 .icon-container {
     width: 200px;
     height: 200px;
@@ -14,11 +13,12 @@
 }
 
 .user {
-    font-size: 130px; /* 원 안에 잘 들어가도록 */
-    margin: 0; /* 여백 없애기 */
+    font-size: 130px;
+    margin: 0;
     color: rgb(80, 82, 98);
 }
 
+/* 사용자 정보 */
 .user-info > li {
     margin: 10px;
     font-size: 20px;
@@ -27,14 +27,16 @@
     font-weight: bold;
 }
 
+/* 버튼 영역 */
 .button {
     display: flex;
     flex-direction: column;
-    align-items: center; /* 수평 중앙 정렬 */
-    justify-content: center; /* 수직 중앙 정렬 */
-    height: 40vh; /* 화면 전체 높이 */
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
 }
 
+/* 기본 버튼 */
 .bt {
     padding: 12px;
     margin: 10px;
@@ -45,12 +47,14 @@
     background-color: rgb(210, 210, 210);
     color: rgb(85, 85, 85);
     font-weight: bold;
+    cursor: pointer; /* ✅ 손가락 커서 */
 }
 
 .bt:hover {
     background-color: rgb(156, 156, 156);
 }
 
+/* AI 분석 섹션 */
 .ai-title {
     font-size: 26px;
     font-weight: bold;
@@ -73,6 +77,7 @@
     font-size: 19px;
 }
 
+/* AI 버튼 그룹 */
 .ai-button-group {
     display: flex;
     flex-direction: column;
@@ -81,6 +86,7 @@
     gap: 100px;
 }
 
+/* AI 버튼 */
 .ai-button {
     padding: 13px;
     margin: 10px;
@@ -89,12 +95,14 @@
     background-color: rgb(114, 117, 135);
     color: rgb(245, 245, 245);
     font-weight: bold;
+    cursor: pointer; /* ✅ 손가락 커서 */
 }
 
 .ai-button:hover {
     background-color: #494c57;
 }
 
+/* AI 분석 결과 박스 */
 .ai-result {
     display: flex;
     align-items: center;
