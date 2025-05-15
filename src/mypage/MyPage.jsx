@@ -1,37 +1,41 @@
-//MyPage.jsx
-
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
+import Profileedit from './Profileedit'; // 모달 컴포넌트
 import './mypage.css';
 
 export default function MyPage() {
+    const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
+
     return (
         <div className="container mx-auto px-4">
             <div style={{ display: 'flex', height: 'auto' }}>
-                {/* 왼쪽 3 (30%) */}
+                {/* 왼쪽 - 사용자 정보 */}
                 <div style={{ flex: 2, backgroundColor: '#fdfbe4', padding: '20px' }}>
                     <div className="icon-container">
-                        {' '}
                         <FaUser className="user" />
                     </div>
 
                     <ul className="user-info">
-                        <li>이름 : 홍길동 </li>
-                        <li>이메일 : hong@naver.com </li>
+                        <li>이름 : 홍길동</li>
+                        <li>이메일 : hong@naver.com</li>
                     </ul>
 
                     <div className="button">
-                        <button className="bt">회원정보 수정</button>
-
-                        <button className="bt">로그아웃</button>
+                        <button className="bt" onClick={() => setShowModal(true)}>
+                            회원정보 수정
+                        </button>
+                        <button className="bt" onClick={() => navigate('/', { replace: true })}>
+                            로그아웃
+                        </button>
                     </div>
                 </div>
 
-                {/* 오른쪽 7 (70%) */}
+                {/* 오른쪽 - AI 분석 */}
                 <div style={{ flex: 8, padding: '20px' }}>
                     <div className="ai-section">
                         <p className="ai-title">🤖 지갑 걱정, AI가 덜어줄게요!</p>
-
                         <div className="ai-description">
                             <span className="ai-quote">"내가 뭘 이렇게 많이 썼지?"</span>
                             <span className="ai-subtext">
@@ -59,9 +63,10 @@ export default function MyPage() {
                         </div>
                     </div>
                 </div>
-
-                {/* ------------------------------------------------------------- */}
             </div>
+
+            {/* 회원정보 수정 모달 */}
+            <Profileedit show={showModal} handleClose={() => setShowModal(false)} />
         </div>
     );
 }

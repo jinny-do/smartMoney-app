@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     margin: 30px;
-    color: rgb(80, 66, 90);
+    color: rgb(65, 49, 77);
 }
 
 .text {
@@ -22,14 +22,16 @@
 }
 
 .camera-button {
-    width: 300px;
-    padding: 15px;
+    width: 350px;
+    padding: 17px;
     margin: 10px;
-    font-size: 20px;
+    font-size: 25px;
     border: none;
     border-radius: 25px;
-    background-color: rgb(142, 111, 163);
+    background-color: rgb(179, 147, 201);
     color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    font-weight: 450;
 }
 
 .camera-button:hover {

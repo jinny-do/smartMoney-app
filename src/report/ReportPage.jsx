@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import PieChart from './PieChart';
 import LineChart from './LineChart';
+import Goal from './Goal';
 import './Report.css';
 
 const dummyExpenses = [
@@ -44,13 +45,6 @@ function ReportPage() {
         return `${year}-${month}`;
     };
 
-    const handleConfirm = () => {
-        const key = getCurrentMonthKey();
-        localStorage.setItem(`goal-${key}`, input);
-        setGoal(input);
-        setInput('');
-    };
-
     return (
         <div>
             <div className="report-header">
@@ -72,12 +66,8 @@ function ReportPage() {
                 </div>
             </div>
 
-            <div className="goal">
-                <label>이번 달 목표 설정 :</label>
-                <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
-                <button onClick={handleConfirm}>확인</button>
-
-                {/* {goal && <p>📌 이번 달 목표: {goal}</p>} */}
+            <div>
+                <Goal />
             </div>
         </div>
     );

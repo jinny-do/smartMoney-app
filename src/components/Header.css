@@ -14,7 +14,7 @@
 
 /* 로고 */
 .navbar-logo {
-    width: 100px;
+    width: 130px;
     height: auto;
     margin-right: 10px;
 }
@@ -27,13 +27,15 @@
     margin-right: 70px;
 }
 
-.header-right .nav-link {
+.nav-link {
     color: rgb(96, 80, 106) !important;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.header-right .nav-link:active {
-    color: #000000 !important; /* 원하는 색 */
+.nav-link.active {
+    color: #ffe8a1 !important; /* 클릭된 메뉴 색상 */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
