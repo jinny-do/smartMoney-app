@@ -74,7 +74,6 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    margin-top: 10px;
 }
 .intro-title {
     font-size: 35px;
@@ -140,3 +139,5 @@
     border: 2px solid #765396;
     outline: none;
 }
+
+/* 코드추가  */
