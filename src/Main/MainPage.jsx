@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
@@ -9,7 +9,7 @@ const MainPage = () => {
     const [selected, setSelected] = useState(new Date()); // 선택된 날짜
     const navigate = useNavigate();
 
-    const categories = ['음식', '교통', '쇼핑', '문화', '기타'];
+    const categories = ['음식', '교통', '쇼핑', '문화', '기타/의료'];
 
     const formattedDate = selected ? format(selected, 'yyyy-MM-dd') : ''; // 날짜 포맷
 
@@ -26,22 +26,26 @@ const MainPage = () => {
     ];
 
     // 날짜에 맞춰 지출 항목 합산하기
-    const expenseMap = dailyExpenses.reduce((acc, item) => {
-        if (!acc[item.date]) {
-            acc[item.date] = {}; // 날짜별로 카테고리별 지출 금액을 저장할 객체 초기화
-        }
-        if (!acc[item.date][item.item]) {
-            acc[item.date][item.item] = 0; // 카테고리별 지출 초기화
-        }
-        acc[item.date][item.item] += parseInt(item.amount.replace(/[^\d]/g, '')); // 금액을 합산
-        return acc;
-    }, {});
+    const expenseMap = useMemo(() => {
+        return dailyExpenses.reduce((acc, item) => {
+            if (!acc[item.date]) {
+                acc[item.date] = {}; // 날짜별로 카테고리별 지출 금액을 저장할 객체 초기화
+            }
+            if (!acc[item.date][item.item]) {
+                acc[item.date][item.item] = 0; // 카테고리별 지출 초기화
+            }
+            acc[item.date][item.item] += parseInt(item.amount.replace(/[^\d]/g, '')); // 금액을 합산
+            return acc;
+        }, {});
+    }, [dailyExpenses]); // dailyExpenses가 변경될 때만 재계산
 
     // 총 합 계산 (모든 카테고리의 지출을 더함)
-    const totalAmount = dailyExpenses.reduce((acc, item) => {
-        const amountWithoutWon = parseInt(item.amount.replace(/[^\d]/g, '')); // '원' 기호를 제거하고 숫자로 변환
-        return acc + amountWithoutWon;
-    }, 0); // 초기값은 0
+    const totalAmount = useMemo(() => {
+        return dailyExpenses.reduce((acc, item) => {
+            const amountWithoutWon = parseInt(item.amount.replace(/[^\d]/g, '')); // '원' 기호를 제거하고 숫자로 변환
+            return acc + amountWithoutWon;
+        }, 0); // 초기값은 0
+    }, [dailyExpenses]); // dailyExpenses가 변경될 때만 재계산
 
     // 금액 포맷팅 함수
     const formatCurrency = (value) => {
@@ -51,9 +55,10 @@ const MainPage = () => {
 
     // 날짜 변경 후 지출 내역 갱신
     useEffect(() => {
-        if (!formattedDate) return;
-        setDailyExpensesData(expenseMap[formattedDate] || {}); // 해당 날짜의 지출 내역 업데이트
-    }, [formattedDate, expenseMap]);
+        if (!formattedDate || !expenseMap[formattedDate]) return; // 불필요한 상태 업데이트를 방지하는 조건 추가
+        // 데이터가 변경된 경우에만 상태 업데이트
+        setDailyExpensesData(expenseMap[formattedDate] || {});
+    }, [formattedDate]); // formattedDate 또는 expenseMap이 변경될 때만 실행
 
     return (
         <div className="container">

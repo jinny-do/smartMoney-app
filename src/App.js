@@ -1,7 +1,7 @@
 import './App.css';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // useEffect 추가
 
 import Header from './components/Header';
 
@@ -18,6 +18,19 @@ import Camera from './upload/Camera';
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    // 페이지 새로 고침 시 로그인 상태 유지
+    useEffect(() => {
+        const savedLoginStatus = localStorage.getItem('isLoggedIn');
+        if (savedLoginStatus === 'true') {
+            setIsLoggedIn(true);
+        }
+    }, []);
+
+    // 로그인 상태가 변경될 때마다 localStorage에 저장
+    useEffect(() => {
+        localStorage.setItem('isLoggedIn', isLoggedIn.toString());
+    }, [isLoggedIn]);
 
     return (
         <div className="global-wrapper">

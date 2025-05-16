@@ -9,6 +9,8 @@ const categories = ['음식', '쇼핑', '교통', '문화생활', '의료/기타
 
 //  더미 데이터 (프론트에서만 테스트용)
 
+
+
 const dummyData = [
     { id: 1, category: '음식', memo: '스타벅스', amount: 4500 },
     { id: 2, category: '쇼핑', memo: '무신사 ', amount: 29000 },
