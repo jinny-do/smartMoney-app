@@ -76,7 +76,8 @@ body {
 
 /* 반응형 달력 크기 조정 */
 
-.rdp {
+/* responsive-calendar 스타일을 .rdp 대신 적용 */
+.responsive-calendar {
     margin: 0 auto;
     border-radius: 10px; /* 둥글게 */
     box-shadow: 2px 2px 7px rgb(212, 212, 212);
@@ -89,6 +90,20 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+/* .rdp {
+    margin: 0 auto;
+    border-radius: 10px; /* 둥글게 
+    box-shadow: 2px 2px 7px rgb(212, 212, 212);
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 /* 날짜 셀 간격 및 크기 - 기본 */
 .rdp-table {
