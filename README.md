@@ -4,7 +4,7 @@
 
 2️⃣ npm install react@18 react-dom@18
 
-3️⃣ npm ci
+
 
  ⚠️ 해보시고 안 되시면 연락 주세요 ,,,,
 
