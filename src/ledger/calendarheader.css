@@ -1,5 +1,6 @@
 .calendar-container {
     position: relative;
+
     margin-bottom: 30px;
 }
 
@@ -15,32 +16,44 @@
 .nav-button {
     border: none;
     border-radius: 5px;
+
     background-color: #fff;
+
     cursor: pointer;
     padding: 4px;
     transition: background-color 0.2s ease;
+    font-size: 1em;
+    text-align: center;
 }
 
 .nav-button:hover {
-    background-color: #f0f0f0;
+
+    color: rgb(149, 119, 200);
 }
 
 .nav-button:active {
     background-color: #ddd;
+
 }
 
 .date-text {
     font-size: 25px;
+    text-align: center;
+
+    margin-bottom: 9px;
+
 }
 
 .calendar-icon {
     cursor: pointer;
+
     font-size: 22px;
     transition: color 0.2s ease;
 }
 
 .calendar-icon:hover {
-    color: #3062e0;
+    color: rgb(149, 119, 200);
+
 }
 
 .calendar-popup {
@@ -48,9 +61,9 @@
     top: 50px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
     border-radius: 8px;
-    padding: 10px;
+    padding: 20px;
+    padding-right: 70px;
     z-index: 9999;
 }

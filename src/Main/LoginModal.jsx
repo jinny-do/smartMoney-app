@@ -42,30 +42,30 @@ function Login({ onLoginSuccess }) {
 
     return (
         <div className="login-container">
-            <img src="./images/logo.png" alt="로고" className="logo" />
-            <h2 className="title">똑똑한 가계부에 오신 것을 환영합니다</h2>
-            <h2 className="explain">사진 한 장으로 자동 가계부 작성, 지금 바로 시작해보세요!</h2>
 
-            <input type="email" placeholder="이메일" value={email} onChange={handleEmail} className="input-field" />
-            <input
-                type="password"
-                placeholder="비밀번호"
-                value={password}
-                onChange={handlePassword}
-                className="input-field"
-            />
+            <div>
+                <img src="./images/logo3.png" alt="로고" className="logo" />
+                <h2 className="title">똑똑한 가계부에 오신 것을 환영합니다</h2>
+                <h2 className="explain">사진 한 장으로 자동 가계부 작성, 지금 바로 시작해보세요!</h2>
+            </div>
 
-            <button
-                onClick={handleLogin}
-                className="login-button"
-                style={{
-                    backgroundColor: nowAllow ? '#007bff' : '#999',
-                    cursor: nowAllow ? 'pointer' : 'not-allowed',
-                }}
-                disabled={!nowAllow}
-            >
+            <div>
+
+                <input type="email" placeholder="이메일" value={email} onChange={handleEmail} className="input-field" />
+                <input
+                    type="password"
+                    placeholder="비밀번호"
+                    value={password}
+                    onChange={handlePassword}
+                    className="input-field"
+                />
+
+            </div>
+
+            <button onClick={handleLogin} className={`my-btn ${nowAllow ? 'active' : 'disabled'}`} disabled={!nowAllow}>
                 로그인
             </button>
+
 
             <div className="signup">
                 아직 회원이 아니신가요?{' '}

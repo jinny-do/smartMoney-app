@@ -1,54 +1,168 @@
-/* MainPage.css */
-
-.main-container {
+.main-page-wrapper {
     display: flex;
-    margin-top: 150px;
-    padding-left: 80px;
-    justify-content: center;
+    flex-direction: column;
 }
 
+
+body {
+    background-color: #fefdf6;
+
+}
+.main-container {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    align-items: flex-start;
+    gap: 10px;
+    padding: 120px 40px 40px;
+    box-sizing: border-box;
+    margin-top: 0;
+
+}
+
+.calendar-section-wqpper {
+    display: inline-block;
+}
+
+/* 📅 캘린더 */
+/* Main.css 또는 calendar 관련 css에 추가 */
 .calendar-section {
-    transform: scale(3);
-    transform-origin: top left;
-    margin-left: 200px;
+
+    flex: 7;
+
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    transform: scale(1.3);
+    margin: 7px;
+
 }
 
+.my-selected {
+    border-radius: 50% !important;
+    border: 2px solid rgb(96, 80, 106) !important;
+    width: 42px !important;
+    height: 40px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: auto !important;
+    padding: 0 !important;
+}
+
+/* 오늘 날짜 테두리 강조 */
+.my-today {
+    background-color: #ccc8f0 !important;
+    color: white !important;
+    border-radius: 50% !important;
+    font-weight: bold;
+}
+/* ← → 화살표 아이콘 스타일 */
+.custom-arrow {
+    color: rgb(96, 80, 106);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.custom-arrow:hover {
+    color: rgb(61, 50, 68);
+}
+
+/* 반응형 달력 크기 조정 */
+
+.rdp {
+
+    width: 420px;
+    margin: 0 auto;
+    border-radius: 10px; /* 둥글게 */
+    box-shadow: 2px 2px 7px rgb(212, 212, 212);
+    padding: 20px;
+    padding-right: 70px;
+    padding-left: 70px;
+
+    margin-bottom: 20px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 날짜 셀 간격 및 크기 - 기본 */
+.rdp-table {
+    border-collapse: separate;
+    border-spacing: 1vw; /* 반응형 간격 */
+}
+
+.rdp-day {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+}
+
+/*  업로드 버튼 */
 .upload-button {
-    margin-top: 20px;
-    width: 160px;
-    height: 30px;
+    margin-top: 7px;
+    width: 150px;
+    height: 50px;
     border-radius: 25px;
-    background-color: #156ca7;
+    background-color: rgb(179, 147, 201);
     border: none;
     color: white;
     font-weight: bold;
-    font-size: 0.7rem;
+
+    font-size: 1.3rem;
+
     cursor: pointer;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
+.upload-button:hover {
+
+    background-color: #472566;
+
+}
+
+/*  지출 내역 */
 .expense-section {
-    width: 700px;
-    margin-left: 600px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: start;
+    align-items: stretch;
+    padding: 10px;
+    position: relative;
+    top: -90px;
 }
 
 .expense-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 10px;
     font-weight: bold;
+
+    margin-top: 0;
 }
 
 .expense-box {
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* 💬 지출 카드 */
 .expense-item {
     padding: 12px 16px;
     display: flex;
@@ -56,16 +170,21 @@
     align-items: center;
     font-size: 1rem;
     height: 100px;
+    text-align: center;
+    border: none;
+    margin: 10px;
+    border-radius: 6px;
 }
 
 .expense-item-border {
-    border-bottom: 1px solid #e0e0e0;
+    background-color: #f8f8f8;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .expense-empty {
-    background-color: #f7f7f7;
-    color: #aaa;
-    width: 100%;
+    color: #575757;
+    width: 80%;
+
     text-align: center;
 }
 
@@ -75,35 +194,45 @@
 
 .expense-name {
     flex: 1;
+
+    font-weight: bold;
+
 }
 
 .expense-amount {
     color: #555;
+
+    font-weight: bold;
 }
 
 .plus-button {
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: bold;
-    color: #888;
+    color: rgb(158, 123, 182);
     cursor: pointer;
 }
-.main-page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* 화면 전체 높이 */
+
+.plus-button:hover {
+    background-color: #472566;
+    width: 80px;
+    color: white;
+    border-radius: 5px;
+
 }
 
-.main-container {
-    flex-grow: 1; /* 남은 공간 모두 차지해서 위로 밀어줌 */
-}
-
-/* 목표는 자연스럽게 맨 아래로 */
+/* 🎯 이번 달 목표 */
 .goal-display {
+    width: auto;
     text-align: center;
-    padding: 20px;
-    font-weight: bold;
-    background-color: #f3f3f3;
-    border-top: 1px solid #ccc;
+
+    padding: 7px;
+    font-weight: 450;
+    border: none;
+    font-size: 18px;
+    margin-top: 5px;
+    border-radius: 8px;
+    padding-bottom: 10px;
+
 }

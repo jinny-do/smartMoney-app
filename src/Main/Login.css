@@ -1,10 +1,14 @@
 /* Login.css */
 
 .login-container {
-    max-width: 1000px;
+    /* max-width: 1000px; */
     margin: auto;
     text-align: center;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo {
@@ -30,15 +34,28 @@
     border-radius: 5px;
     border: 1.5px solid rgb(137, 137, 137);
 }
-
-.login-button {
-    width: 300px;
-    padding: 0.8rem;
-    margin-top: 1rem;
-    font-size: 16px;
+/* 예시 CSS */
+.my-btn {
+    width: 330px;
+    padding: 0.8em;
     border: none;
-    color: white;
     border-radius: 5px;
+    color: white;
+    font-size: 15px;
+}
+
+.my-btn.active {
+    background-color: rgb(142, 111, 163);
+    cursor: pointer;
+}
+
+.my-btn.active:hover {
+    background-color: #472566;
+}
+
+.my-btn.disabled {
+    background-color: #999;
+    cursor: not-allowed;
 }
 
 .signup {

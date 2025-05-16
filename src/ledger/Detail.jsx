@@ -10,11 +10,13 @@ const categories = ['음식', '쇼핑', '교통', '문화생활', '의료/기타
 //  더미 데이터 (프론트에서만 테스트용)
 
 
+
 const dummyData = [
     { id: 1, category: '음식', memo: '스타벅스', amount: 4500 },
     { id: 2, category: '쇼핑', memo: '무신사 티셔츠', amount: 29000 },
     { id: 3, category: '교통', memo: '지하철', amount: 1350 },
     { id: 4, category: '문화생활', memo: '넷플릭스 구독', amount: 17000 },
+
     { id: 5, category: '음식', memo: '김밥천국', amount: 6500 },
     { id: 6, category: '의료/기타', memo: '서구청보건소', amount: 3000 },
 ];

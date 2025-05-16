@@ -14,11 +14,15 @@ import Login from './Main/LoginModal';
 import Upload from './upload/Upload';
 import ReportPage from './report/ReportPage';
 
+
+
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     return (
-        <div className="container py-5">
+
+        <div>
+
             {/* 로그인 후에만 헤더 항상 표시 */}
             {isLoggedIn && <Header />}
 
@@ -35,6 +39,7 @@ function App() {
                 <Route path="/MyPage" element={isLoggedIn ? <MyPage /> : <Navigate to="/" />} />
                 <Route path="/upload" element={isLoggedIn ? <Upload /> : <Navigate to="/" />} />
                 <Route path="/report" element={isLoggedIn ? <ReportPage /> : <Navigate to="/" />} />
+
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </div>
