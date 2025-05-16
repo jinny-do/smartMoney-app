@@ -22,7 +22,9 @@
 }
 
 .camera-button {
-    width: 380px;
+
+    width: 350px;
+
     padding: 17px;
     margin: 10px;
     font-size: 25px;

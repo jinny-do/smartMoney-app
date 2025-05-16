@@ -63,7 +63,9 @@ export default function GoalSettingPage() {
                     type="text"
                     value={input}
                     onChange={handleInputChange}
-                    placeholder="  이번 달 목표 금액을 입력해 주세요! (숫자만 입력해 주세요) "
+
+                    placeholder="  이번 달 목표 금액을 입력해 주세요! "
+
                 />
                 <button className="goal-button" onClick={handleConfirm}>
                     확인

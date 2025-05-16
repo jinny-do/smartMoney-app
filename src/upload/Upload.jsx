@@ -14,23 +14,9 @@ export default function Upload() {
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         if (file) {
-            const reader = new FileReader();
 
-            reader.onload = () => {
-                // 기존 이미지 목록 불러오기
-                const saved = JSON.parse(localStorage.getItem('receipts') || '[]');
+            console.log('선택된 파일:', file);
 
-                // 새 이미지 추가
-                saved.push(reader.result);
-
-                // 다시 저장
-                localStorage.setItem('receipts', JSON.stringify(saved));
-
-                // ✅ 저장 후 바로 갤러리로 이동
-                navigate('/gallery');
-            };
-
-            reader.readAsDataURL(file); // base64 변환
         }
     };
 
@@ -49,9 +35,9 @@ export default function Upload() {
                     촬영하기
                 </button>
 
-                <button className="camera-button" onClick={() => navigate('/gallery')}>
-                    업로드한 영수증 보기
-                </button>
+
+                <button className="camera-button">업로드한 영수증 보기</button>
+
             </div>
 
             {/* 숨겨진 파일 업로드 input */}

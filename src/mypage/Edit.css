@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* 모달 전체 스타일 */
 .my-modal .modal-content {
     border-radius: 16px;
@@ -29,4 +30,17 @@
 
 .pink-button:hover {
     background-color: #8944c9 !important;
+=======
+.my-modal .modal-content {
+    border-radius: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding: 10px;
+}
+
+.my-modal .modal-header,
+.my-modal .modal-footer {
+    background-color: #f8f8f8;
+    border-bottom: none;
+    border-top: none;
+>>>>>>> bb9f770539a6c2ca6555e6cf7e7724f2066ec968
 }

@@ -1,113 +1,112 @@
-/* 전체 배경 */
+
 .register-background {
+    height: 110vh;
+    background: linear-gradient(to right, #f7f7f7, #f0f0f0);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-
-    flex-direction: column;
-    padding: 20px;
 }
 
-/* 로고 이미지 */
-.logo-r {
-    width: 130px;
-    height: auto;
-    margin-bottom: 20px;
+.register-card {
+    width: 400px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    margin-top: 10px;
+}
+
+.register-logo {
+    width: 120px;
+    margin-bottom: 10px;
     cursor: pointer;
 }
 
-/* 카드 박스 */
-.register-card {
-    background-color: #fff;
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
-}
-
-/* 타이틀 */
 .register-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    text-align: center;
-    color: #4b3d84;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-/* 입력 폼 */
 .register-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+    text-align: left;
 }
 
 .register-form label {
-    font-size: 14px;
+    font-size: 0.9rem;
     color: #444;
-    margin-bottom: 4px;
+    margin-top: 5px;
 }
 
 .register-form input {
-    padding: 10px 14px;
+    padding: 10px;
+    font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 14px;
-    outline: none;
-    transition: border 0.2s;
+    border-radius: 4px;
 }
 
-.register-form input:focus {
-    border-color: #6c63ff;
-}
-
-/* 버튼 */
 .register-button {
-    margin-top: 10px;
-    background-color: rgb(177, 142, 200);
-    color: white;
+    margin-top: 20px;
     padding: 12px;
+    font-size: 1.1rem;
+    background-color: rgb(142, 111, 163);
     border: none;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 16px;
+    color: white;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
 .register-button:hover {
-    background-color: #765396;
+    background-color: #472566;
 }
 
-/* 구분선 */
 .divider {
-    display: flex;
-    align-items: center;
-    margin: 24px 0;
-    font-size: 14px;
-    color: #aaa;
+    margin: 20px 0;
+    position: relative;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+
 }
 
 .divider::before,
 .divider::after {
     content: '';
-    flex: 1;
+
+    position: absolute;
+    top: 50%;
+    width: 45%;
     height: 1px;
-    background-color: #ddd;
-    margin: 0 10px;
+    background: #ccc;
 }
 
-/* 로그인 이동 */
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
 .go-login {
-    font-size: 14px;
-    color: #3e49c2;
-    text-align: center;
+    font-size: 0.95rem;
+    color: #007bff;
     cursor: pointer;
-    transition: color 0.2s;
+    text-decoration: underline;
 }
 
-.go-login:hover {
-    color: #6c63ff;
+.logo-r {
+    width: 130px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+
 }

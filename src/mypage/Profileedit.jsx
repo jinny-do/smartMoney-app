@@ -1,14 +1,19 @@
+
+// src/EditProfileModal.jsx
 import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
-import './Edit.css';
+import './Edit.css'; // 이 안에 Bootstrap 덮는 스타일 지정 가능
+
 
 export default function Profileedit({ show, handleClose }) {
     return (
         <Modal show={show} onHide={handleClose} centered className="my-modal">
-            <Modal.Header closeButton className="modal-header-custom">
+
+            <Modal.Header closeButton>
                 <Modal.Title>회원정보 수정</Modal.Title>
             </Modal.Header>
-            <Modal.Body className="modal-body-custom">
+            <Modal.Body>
+
                 <Form>
                     <Form.Group className="mb-3">
                         <Form.Label>이름</Form.Label>
@@ -28,7 +33,9 @@ export default function Profileedit({ show, handleClose }) {
                 <Button variant="secondary" onClick={handleClose}>
                     닫기
                 </Button>
-                <Button className="pink-button">저장</Button>
+
+                <Button className="button">저장</Button>
+
             </Modal.Footer>
         </Modal>
     );

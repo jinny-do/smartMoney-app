@@ -3,7 +3,8 @@
     justify-content: center;
     padding: 3px;
     margin-top: 30px;
-    margin-bottom: 30px;
+
+
 }
 
 .goal > label {
@@ -26,12 +27,16 @@
     font-size: 14px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(179, 147, 201);
+
+    background-color: rgb(152, 123, 172);
+
     color: white;
     width: 4em;
     box-shadow: 0 2px 2px rgba(84, 84, 84, 0.291);
 }
 
 .goal > button:hover {
-    background-color: #765396;
+
+    background-color: #472566;
+
 }

@@ -3,7 +3,10 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+<<<<<<< HEAD
     height: 800px;
+=======
+>>>>>>> bb9f770539a6c2ca6555e6cf7e7724f2066ec968
 }
 
 .App {
@@ -44,6 +47,7 @@ body {
         transform: rotate(360deg);
     }
 }
+<<<<<<< HEAD
 
 .global-wrapper {
     width: 100vw; /* 👉 화면의 75%만 차지 */
@@ -52,3 +56,5 @@ body {
 
     box-sizing: border-box;
 }
+=======
+>>>>>>> bb9f770539a6c2ca6555e6cf7e7724f2066ec968

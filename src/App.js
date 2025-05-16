@@ -13,14 +13,16 @@ import MyPage from './mypage/MyPage';
 import Login from './Main/LoginModal';
 import Upload from './upload/Upload';
 import ReportPage from './report/ReportPage';
-import Gallery from './upload/Gallery';
-import Camera from './upload/Camera';
+
+
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     return (
-        <div className="global-wrapper">
+
+        <div>
+
             {/* 로그인 후에만 헤더 항상 표시 */}
             {isLoggedIn && <Header />}
 
@@ -37,8 +39,7 @@ function App() {
                 <Route path="/MyPage" element={isLoggedIn ? <MyPage /> : <Navigate to="/" />} />
                 <Route path="/upload" element={isLoggedIn ? <Upload /> : <Navigate to="/" />} />
                 <Route path="/report" element={isLoggedIn ? <ReportPage /> : <Navigate to="/" />} />
-                <Route path="/camera" element={isLoggedIn ? <Camera /> : <Navigate to="/" />} />
-                <Route path="/gallery" element={isLoggedIn ? <Gallery /> : <Navigate to="/" />} />
+
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </div>
