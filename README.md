@@ -1,4 +1,4 @@
-#실행이 잘 안 되면 이 패키지 설치해주세요
+# 실행이 잘 안 되면 이 패키지 설치해주세요
 
 1️⃣ npm install react-day-picker@8.0.0 --legacy-peer-deps
 
